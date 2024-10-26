@@ -160,12 +160,6 @@ jobs:
           cp ./fbw-a380x/out/build-modules/modules.json ./fbw-a380x/out/flybywire-aircraft-a380-842/install.json
           node ./scripts/install-source_a380x.js
           df -h
-      - name: Upload to CloudFlare CDN (Installer)
-        env:
-          CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
-          CDN_BUCKET_DESTINATION: addons/a380x/${{ secrets.A380X_EXP_DIRECTORY }}/stable
-        run: |
-          ./scripts/cf-cdn.sh $CDN_BUCKET_DESTINATION ./fbw-a380x/out/build-modules
       - name: Build Standalone Download files
         run: |
           mkdir ./${{ env.BUILD_DIR_NAME }}
