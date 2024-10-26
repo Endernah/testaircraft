@@ -74,12 +74,6 @@ jobs:
           7z a -t7z -m0=lzma2 -mx=7 ../../${{ env.BUILD_DIR_NAME }}/${{ env.MASTER_ZIP_NAME }} ./flybywire-aircraft-a320-neo/
           cd ../../
           df -h
-      - name: Upload to CloudFlare CDN
-        env:
-          CLOUDFLARE_BUCKET_PASSWORD: ${{ secrets.CLOUDFLARE_BUCKET_PASSWORD }}
-          CDN_BUCKET_DESTINATION: addons/a32nx/v0.12
-        run: |
-          ./scripts/cf-cdn.sh $CDN_BUCKET_DESTINATION ./fbw-a32nx/out/build-modules
   build_a380x:
     name: Build and deploy A380X
     # Prevent running this on forks
