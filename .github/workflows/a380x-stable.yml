@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - v0.12
+  workflow_dispatch:
+    branches:
+      - v0.12
 
 jobs:
   build_a32nx:
